@@ -4,4 +4,4 @@ Simple shell script for exporting flatex depot contents as CSV. Flatex doesn't p
 
 Usage: ./flatexporter.sh username password
 
-Requires curl and jq.
+Requires curl and jq or gpg. If jq is not found in the path, it will be downloaded to /tmp. In that case, gpg is required for signature verification.
