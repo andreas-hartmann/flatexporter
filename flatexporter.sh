@@ -34,8 +34,8 @@ if ! [ -x "$jqpath" ] ; then
 	curl -Ls https://raw.githubusercontent.com/stedolan/jq/master/sig/jq-release.key --output /tmp/jq-release.key
 	curl -Ls https://raw.githubusercontent.com/stedolan/jq/master/sig/v${JQ_VERSION}/jq-linux64.asc --output /tmp/jq-linux64.asc
 	curl -Ls https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 --output /tmp/jq-linux64
-	gpg --import /tmp/jq-release.key
-	gpg --verify /tmp/jq-linux64.asc /tmp/jq-linux64
+	gpg -q --import /tmp/jq-release.key
+	gpg --verify /tmp/jq-linux64.asc /tmp/jq-linux64 2>/dev/null
 
 	if ! [ $? -eq 0 ] ; then
 		exit $?
